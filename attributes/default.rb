@@ -36,6 +36,10 @@ default['nginx']['ulimit']       = '1024'
 # cleanup runit install of previous cookbooks
 default['nginx']['cleanup_runit'] = true
 
+# configuration for package installation
+default['nginx']['package_install_opts']['rhel']   = '--disablerepo=* --enablerepo=nginx'
+default['nginx']['package_version']                = nil
+
 # use the upstream nginx repo vs. distro packages
 # this enables the use of modern nginx releases
 # set this to nil to use the distro packages

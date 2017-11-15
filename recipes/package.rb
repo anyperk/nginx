@@ -29,7 +29,7 @@ when 'epel'
   end
 when 'nginx'
   include_recipe 'nginx::repo'
-  package_install_opts = '--disablerepo=* --enablerepo=nginx' if platform_family?('rhel')
+  package_install_opts = node['nginx']['package_install_opts'][node['platform_family']]
 when 'passenger'
   if platform_family?('debian')
     include_recipe 'nginx::repo_passenger'
@@ -41,6 +41,7 @@ else
 end
 
 package node['nginx']['package_name'] do
+  version node['nginx']['package_version'] if node['nginx']['package_version']
   options package_install_opts
   notifies :reload, 'ohai[reload_nginx]', :immediately
 end

@@ -172,6 +172,13 @@ These attributes are used in the `nginx::openssl_source` recipe.
 - `node['nginx']['openssl_source']['version']` - The version of OpenSSL you want to download and use (default: 1.0.1t)
 - `node['nginx']['openssl_source']['url']` - The url for the OpenSSL source
 
+### nginx::package
+
+These attributes are used in the `nginx::package` recipe.
+
+- `node['nginx']['package_version']` - version of nginx package
+- `node['nginx']['package_install_opts']['rhel'] - additional options for the package manager
+
 ### nginx::passenger
 
 These attributes are used in the `nginx::passenger` recipe.
